@@ -212,8 +212,7 @@
   \end{center}
 \end{frame}
 
-\section{Model-dependent measurement at LHCb}
-\begin{frame}{Model-dependent measurement at LHCb}
+\begin{frame}{Model-dependent LHCb measurement}
   \begin{figure}
     \centering
     \begin{subfigure}{0.50\textwidth}
@@ -449,7 +448,6 @@
   \end{figure}
 \end{frame}
 
-\section{Partially reconstructed \texorpdfstring{$D^0\to K^+K^-\pi^+\pi^-$}{D02KKpipi}}
 \begin{frame}{Partially reconstructed $D^0\to K^+K^-\pi^+\pi^-$}
   \begin{itemize}
     \item{The reconstruction efficiency of $D\to KK\pi\pi$ is less than $20\%$}
@@ -708,7 +706,7 @@
 
 \begin{frame}{Likelihood fit}
   \vspace{0.0cm}
-  {\Large We propose a simpler, but perhaps powerful strategy:}
+  {\Large We propose a simpler, but more powerful strategy:}
   \begin{enumerate}
     \item{Treat all $K_i$, $c_i$ and $s_i$ as free parameters}
     \item{Include the $D\to KK\pi\pi$ branching fraction $\mathcal{B}$ as a free parameter}
@@ -767,7 +765,7 @@
     Approximate covariance matrix from the asymmetric uncertainties\footnote{\href{https://arxiv.org/abs/physics/0406120}{arXiv:physics/0406120}}:
     \begin{align*}
       -\ln(\mathcal{L}) =& \frac{1}{2}\sum_{\rm Tag}\sum_{ij}(V^{-1})_{ij}(N^{\rm DT}_i - \hat{N}^{\rm DT}_i)(N^{\rm DT}_j - \hat{N}^{\rm DT}_j) \\
-      V_{ij} =& \rho_{ij}\sigma_i\sigma_j, \quad \sigma_i = \sqrt{\sigma_-\sigma_+ - (\sigma_+ - \sigma_-)(N^{\rm DT}_i - \hat{N}^{\rm DT})}
+      V_{ij} =& \rho_{ij}\sigma_i\sigma_j, \quad \sigma = \sqrt{\sigma_-\sigma_+ - (\sigma_+ - \sigma_-)(N^{\rm DT} - \hat{N}^{\rm DT})}
     \end{align*}
   \end{center}
 \end{frame}
@@ -777,7 +775,7 @@
   \begin{center}
     \begin{align*}
       -\ln(\mathcal{L}) =& \frac{1}{2}\sum_{\rm Tag}\sum_{ij}(V^{-1})_{ij}(N^{\rm DT}_i - \hat{N}^{\rm DT}_i)(N^{\rm DT}_j - \hat{N}^{\rm DT}_j) \\
-      V_{ij} =& \rho_{ij}\sigma_i\sigma_j, \quad \sigma_i = \sqrt{\sigma_-\sigma_+ - (\sigma_+ - \sigma_-)(N^{\rm DT}_i - \hat{N}^{\rm DT})}
+      V_{ij} =& \rho_{ij}\sigma_i\sigma_j, \quad \sigma = \sqrt{\sigma_-\sigma_+ - (\sigma_+ - \sigma_-)(N^{\rm DT} - \hat{N}^{\rm DT})}
     \end{align*}
   \end{center}
   \begin{itemize}
@@ -790,19 +788,18 @@
     \end{itemize}
     \item{In multi-body decays, use the full unbinned likelihood directly}
     \begin{itemize}
-      \item{Fit convergence improves to over $99\%$}
+      \item{Fit convergence improves to over $95\%$}
       \item{Much slower, but much more accurate}
     \end{itemize}
   \end{itemize}
 \end{frame}
 
-\section{Parameterisation of \texorpdfstring{$K_i$}{Ki}}
 \begin{frame}{Parameterisation of $K_i$}
   \vspace{0.0cm}
   {\Large One last technical detail...}
   \begin{itemize}
-    \item{There are $8$ $K_i$ parameters, but since $\sum_iK_i = 1$, only $7$ are independent}
-    \item{We could set $K_4 = 1 - \sum_{i\neq4}K_i$, but such a parameterisation is unstable}
+    \item{$8$ $K_i$ parameters, but $\sum_iK_i = 1$, so only $7$ are independent}
+    \item{We could set $K_4 = 1 - \sum_{i\neq4}K_i$, but such a parameterisation is unstable due to strong correlations}
     \item{Use a recursive fraction parameterisation (\href{https://link.springer.com/article/10.1007/JHEP02(2021)169}{JHEP \textbf{2021} 169 (2021)})}
     \item{Recursive fractions $R_i$ are defined as:}
   \end{itemize}
@@ -844,12 +841,195 @@
   \end{center}
 \end{frame}
 
-\section{Fit results}
-\begin{frame}{Fit results}
+\section{Input-output checks}
+\begin{frame}{Input-output checks}
+  \vspace{0.0cm}
+  {\large Input-output checks are performed by generating toy datasets}
+  \begin{enumerate}
+    \item{Check fit convergence}
+    \item{Check error coverage}
+    \item{Correct any biases in fitted parameters}
+  \end{enumerate}
+  \vspace{0.5cm}
+  {\large Unfortunately, in this analysis we cannot simply generate Poisson-distributed DT yields:}
+  \begin{enumerate}
+    \item{Asymmetric uncertainties}
+    \item{Large background-to-signal}
+    \item{Multi-body tags with low yields require a full unbinned likelihood}
+  \end{enumerate}
+  \vspace{0.5cm}
+  \begin{center}
+    {\Large Solution: Generate toy datasets for each double tag fit}
+  \end{center}
 \end{frame}
 
-\section{Branching fraction measurement}
+\begin{frame}{Input-output checks}
+  \begin{figure}
+    \centering
+    \begin{subfigure}{0.5\textwidth}
+      \centering
+      \includegraphics[width=1.0\textwidth]{Plots/KK_ToyYields_Bin4.png}
+      \caption{Input yield: $13.9$}
+    \end{subfigure}%
+    \begin{subfigure}{0.5\textwidth}
+      \centering
+      \includegraphics[width=1.0\textwidth]{Plots/KSpi0_ToyYields_Bin4.png}
+      \caption{Input yield: $8.6$}
+    \end{subfigure}
+    \caption{Fitted yields in toy datasets for the (left) $KK$ and (right) $K_S\pi^0$ tags}
+  \end{figure}
+  \vspace{-0.4cm}
+  \begin{enumerate}
+    \item{No biases are observed}
+    \item{Distributions are asymmetric $\implies$ uncertainties are asymmetric}
+    \item{$KK$ uncertainty is non-Poisson because of large backgrounds from $q\bar{q}$}
+    \item{$K_S\pi^0$ has small backgrounds, so observed yields Poisson distributed}
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}{Input-output checks}
+  \begin{figure}
+    \centering
+    \begin{subfigure}{0.5\textwidth}
+      \centering
+      \includegraphics[width=0.75\textwidth,trim={0 0 0 0},clip=true]{Plots/c1_ToyFits_pull.pdf}
+      \caption{$c_1$ pulls}
+    \end{subfigure}%
+    \begin{subfigure}{0.5\textwidth}
+      \centering
+      \includegraphics[width=0.75\textwidth,trim={0 0 0 0},clip=true]{Plots/c2_ToyFits_pull.pdf}
+      \caption{$c_2$ pulls}
+    \end{subfigure}
+    \begin{subfigure}{0.5\textwidth}
+      \centering
+      \includegraphics[width=0.75\textwidth,trim={0 0 0 0},clip=true]{Plots/c3_ToyFits_pull.pdf}
+      \caption{$c_3$ pulls}
+    \end{subfigure}%
+    \begin{subfigure}{0.5\textwidth}
+      \centering
+      \includegraphics[width=0.75\textwidth,trim={0 0 0 0},clip=true]{Plots/c4_ToyFits_pull.pdf}
+      \caption{$c_4$ pulls}
+    \end{subfigure}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{Input-output checks}
+  \begin{figure}
+    \centering
+    \begin{subfigure}{0.5\textwidth}
+      \centering
+      \includegraphics[width=0.75\textwidth]{Plots/s1_ToyFits_pull.pdf}
+      \caption{$s_1$ pulls}
+    \end{subfigure}%
+    \begin{subfigure}{0.5\textwidth}
+      \centering
+      \includegraphics[width=0.75\textwidth]{Plots/s2_ToyFits_pull.pdf}
+      \caption{$s_2$ pulls}
+    \end{subfigure}
+    \begin{subfigure}{0.5\textwidth}
+      \centering
+      \includegraphics[width=0.75\textwidth]{Plots/s3_ToyFits_pull.pdf}
+      \caption{$s_3$ pulls}
+    \end{subfigure}%
+    \begin{subfigure}{0.5\textwidth}
+      \centering
+      \includegraphics[width=0.75\textwidth]{Plots/s4_ToyFits_pull.pdf}
+      \caption{$s_4$ pulls}
+    \end{subfigure}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{Input-output checks}
+  \vspace{0.0cm}
+  {\Large What do the toy fits tell us?}
+  \vspace{1.0cm}
+  \begin{enumerate}
+    \setlength\itemsep{2.0em}
+    \item{Both $c_i$ and $s_i$ pulls has asymmetric tails}
+    \item{Effect is small in $c_i$ and a small bias correction will be sufficient}
+    \item{$s_i$ has a small overcoverage, but a large tail, so special care is required}
+  \end{enumerate}
+\end{frame}
+
+\section{Fit results}
+\begin{frame}{Fit results}
+  \vspace{-0.5cm}
+  \begin{columns}
+    \begin{column}{0.4\textwidth}
+      \begin{align*}
+        c_1 =& \SI{-0.40(13)}{} \\
+        s_1 =& \SI{-0.18(32)}{} \\
+        c_2 =& \phantom{-}\SI{0.79(6)}{} \\
+        s_2 =& \SI{-0.21(24)}{} \\
+        c_3 =& \phantom{-}\SI{0.85(6)}{} \\
+        s_3 =& \phantom{-}\SI{0.53(24)}{} \\
+        c_4 =& \SI{-0.36(13)}{} \\
+        s_4 =& \SI{-0.38(31)}{}
+      \end{align*}
+    \end{column}
+    \begin{column}{0.6\textwidth}
+      \begin{figure}
+        \includegraphics[width=0.9\textwidth]{Plots/Contours_cisi.pdf}
+        \caption{Contours of $c_i$ vs $s_i$, corresponding to $\Delta\log(\mathcal{L}) = 2.30$, or $68\%$ confidence level. Dashed lines show $F_+$ measurement.}
+      \end{figure}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Fit results}
+  \begin{figure}
+    \centering
+    \begin{subfigure}{0.5\textwidth}
+      \centering
+      \includegraphics[width=1.0\textwidth]{Plots/Contours_cisi.pdf}
+      \caption{Data}
+    \end{subfigure}%
+    \begin{subfigure}{0.5\textwidth}
+      \centering
+      \includegraphics[width=1.0\textwidth]{Plots/StrongPhaseParametersPlot_cisi_4Bins.pdf}
+      \caption{LHCb model}
+    \end{subfigure}
+    \caption{Comparison between model and model-independent measurements}
+  \end{figure}
+\end{frame}
+
+\section{Bonus measurements}
+\begin{frame}{$\delta_{K\pi}$ measurement}
+  \begin{itemize}
+    \setlength\itemsep{1.0em}
+    \item{$K_i$, which is constrained by flavour tags, are free parameters in the fit}
+    \item{Corrections for DCS decays, which depend on the strong phases $\delta_D$, are part of the fit}
+    \item{We could instead treat $\delta_D$ as a free parameter, and make a simultaneous measurement}
+    \item{In this analysis we can measure $\delta_{K\pi}$ with negligible reduction in sensitivity to $c_i$ and $s_i$}
+  \end{itemize}
+  \begin{center}
+    $\hat{N}^{\rm DT}_i = N^{\rm ST}\mathcal{B}\epsilon_{ij}\Big(K_{-j} + K_j - 2\sqrt{K_jK_{-j}}\big(c_j\cos(\delta_D) + s_j\sin(\delta_D)\big)\Big)$
+  \end{center}
+  \begin{itemize}
+    \item{Free parameters: $r_D\cos(\delta_{K\pi})$ and $r_D\sin(\delta_{K\pi})$}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{$\delta_{K\pi}$ measurement}
+  \begin{figure}
+    \includegraphics[width=0.55\textwidth]{Plots/Contour_DeltaKpi.pdf}
+    \caption{Contours of $r_D\cos(\delta_{K\pi})$ vs $r_D\sin(\delta_{K\pi})$, corresponding to $\Delta\log(\mathcal{L}) = 2.30$ and $6.18$, or $68\%$ and $95\%$ confidence level. Dashed line indicates measured value of $r_D$.}
+  \end{figure}
+\end{frame}
+
 \begin{frame}{Branching fraction measurement}
+  \vspace{0.0cm}
+  {\Large In addition, we have another nuisance parameter: The $D^0\to K^+K^-\pi^+\pi^-$ branching fraction\\}
+  \begin{center}
+    Current PDG value:\\
+    $\mathcal{B} = \SI{2.47(11)e-3}{}$
+  \end{center}
+  \begin{center}
+    Fit result:\\
+    $\mathcal{B} = \SI{2.765(46)e-3}{}$
+  \end{center}
+  Much better precision than the current world average!\\~\\
+  Do we have the necessary estimates of tracking and PID systematics to also publish this measurement?
 \end{frame}
 
 \section{Summary and conclusion}
@@ -864,7 +1044,7 @@
       \item{Measurement will improve significantly with full $\SI{20}{\per\femto\barn}$ dataset}
       \item{New strategy: Treat $c_i$, $s_i$ and $K_i$ on an equal footing}
       \item{Additionally, $\delta_D^{K\pi}$ can also be determined}
-      \item{The $D^0\to K^+K^-\pi^+\pi^-$ branching fraction is almost $3$ times more precise than the current PDG value}
+      \item{The $D^0\to K^+K^-\pi^+\pi^-$ branching fraction more than $2$ times more precise than the current PDG value}
     \end{itemize}
     \item{Next steps:}
     \begin{enumerate}
@@ -876,37 +1056,6 @@
   \begin{center}
     {\huge Thank you!}
   \end{center}
-\end{frame}
-
-\begin{frame}{Backup}
-  \begin{center}
-    {\huge Backup}
-  \end{center}
-\end{frame}
-
-\renewcommand*{\thefootnote}{\fnsymbol{footnote}}
-\begin{frame}{Tag modes}
-  \begin{itemize}
-    \setlength\itemsep{1.0em}
-    \item{Flavour tags:}
-    \begin{itemize}
-      \item{$K\pi$, $K\pi\pi^0$, $K\pi\pi\pi$, $Ke\nu$}
-    \end{itemize}
-    \item{CP even tags:}
-    \begin{itemize}
-      \item{\underline{$KK$}, $\pi\pi$, \underline{$\pi\pi\pi^0$}\footnote{Mostly CP even}, $K_S\pi^0\pi^0$, $K_L\pi^0$}
-    \end{itemize}
-    \item{CP odd tags:}
-    \begin{itemize}
-      \item{\underline{$K_S\pi^0$}, $K_S\eta$, $K_S\pi\pi\pi^0$\footnote{Predominantly CP odd}, $K_S\eta^\prime_{\pi\pi\eta}$, $K_S\eta^\prime_{\rho\gamma}$}
-    \end{itemize}
-    \item{Self-conjugate tags:}
-    \begin{itemize}
-      \item{\underline{$K_S\pi\pi$}, $K_L\pi\pi$}
-    \end{itemize}
-  \end{itemize}
-  \vspace{0.5cm}
-  Underlined tags are also reconstructed with a missing kaon in $KK\pi\pi$
 \end{frame}
 
 \end{document}
