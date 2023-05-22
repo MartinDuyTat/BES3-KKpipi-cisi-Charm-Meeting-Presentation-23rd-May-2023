@@ -505,11 +505,11 @@
 \begin{frame}{Double tag fits}
   \begin{itemize}
     \setlength\itemsep{1.0em}
-    \item{Fit strategy: Only fit signal side $m_{\rm BC}$ because of low statistics}
+    \item{Fit strategy: Only fit signal side $M_{\rm BC}$ because of low statistics}
     \item{Fit model:}
     \begin{itemize}
       \item{Signal: PDF from signal MC, convolved with a Gaussian}
-      \item{Flatackground: Argus PDF}
+      \item{Flat background: Argus PDF}
       \item{Peaking background: Shape and efficiency from MC, correct for quantum correlation}
       \item{Simple sideband subtraction for correct signal but wrong tag event}
     \end{itemize}
@@ -715,7 +715,7 @@
   \begin{center}
     {\Large Master equations:}
     \begin{align*}
-      \hat{N}^{\rm DT}_i =& N^{\rm ST}\mathcal{B}\epsilon_{ij}\Big(K_{-j} + K_j - 2\sqrt{K_jK_{-j}}\big(c_j\cos(\delta_D) + s_j\sin(\delta_D)\big)\Big) \\
+      \hat{N}^{\rm DT}_i =& N^{\rm ST}\mathcal{B}\epsilon_{ij}\Big(K_{-j} + r_D^2K_j - 2r_D\sqrt{K_jK_{-j}}\big(c_j\cos(\delta_D) + s_j\sin(\delta_D)\big)\Big) \\
       \hat{N}^{\rm DT}_i =& N^{\rm ST}\mathcal{B}\epsilon_{ij}(K_j + K_{-j} \mp 2\sqrt{K_jK_{-j}}c_j) \\
       \hat{N}^{\rm DT}_{ij} =& N^{\rm ST}\mathcal{B}\epsilon_{ijkl}\big(K_{k}K_{-l}^\prime + K_{-k}K_{l}^\prime - 2\sqrt{K_{k}K_{-k}K_{l}^\prime K_{-l}^\prime}(c_{k}c_{l}^\prime + s_{k}s_{l}^\prime)\big)
     \end{align*}
@@ -731,7 +731,7 @@
     \begin{center}
       \vspace{-0.5cm}
       \begin{align*}
-        \hat{N}^{\rm DT}_i =& N^{\rm ST}\mathcal{B}\epsilon_{ij}\Big(K_{-j} + K_j - 2\sqrt{K_jK_{-j}}\big(c_j\cos(\delta_D) + s_j\sin(\delta_D)\big)\Big) \\
+        \hat{N}^{\rm DT}_i =& N^{\rm ST}\mathcal{B}\epsilon_{ij}\Big(K_{-j} + r_D^2K_j - 2r_D\sqrt{K_jK_{-j}}\big(c_j\cos(\delta_D) + s_j\sin(\delta_D)\big)\Big) \\
         \hat{N}^{\rm DT}_i =& N^{\rm ST}\mathcal{B}\epsilon_{ij}(K_j + K_{-j} \mp 2\sqrt{K_jK_{-j}}c_j) \\
         \hat{N}^{\rm DT}_{ij} =& N^{\rm ST}\mathcal{B}\epsilon_{ijkl}\big(K_{k}K_{-l}^\prime + K_{-k}K_{l}^\prime - 2\sqrt{K_{k}K_{-k}K_{l}^\prime K_{-l}^\prime}(c_{k}c_{l}^\prime + s_{k}s_{l}^\prime)\big)
       \end{align*}
@@ -753,7 +753,7 @@
     \begin{center}
       \vspace{-0.5cm}
       \begin{align*}
-        \hat{N}^{\rm DT}_i =& N^{\rm ST}\mathcal{B}\epsilon_{ij}\Big(K_{-j} + K_j - 2\sqrt{K_jK_{-j}}\big(c_j\cos(\delta_D) + s_j\sin(\delta_D)\big)\Big) \\
+        \hat{N}^{\rm DT}_i =& N^{\rm ST}\mathcal{B}\epsilon_{ij}\Big(K_{-j} + r_D^2K_j - 2r_D\sqrt{K_jK_{-j}}\big(c_j\cos(\delta_D) + s_j\sin(\delta_D)\big)\Big) \\
         \hat{N}^{\rm DT}_i =& N^{\rm ST}\mathcal{B}\epsilon_{ij}(K_j + K_{-j} \mp 2\sqrt{K_jK_{-j}}c_j) \\
         \hat{N}^{\rm DT}_{ij} =& N^{\rm ST}\mathcal{B}\epsilon_{ijkl}\big(K_{k}K_{-l}^\prime + K_{-k}K_{l}^\prime - 2\sqrt{K_{k}K_{-k}K_{l}^\prime K_{-l}^\prime}(c_{k}c_{l}^\prime + s_{k}s_{l}^\prime)\big)
       \end{align*}
@@ -822,19 +822,19 @@
   \end{center}
   \vspace{-0.3cm}
   \begin{center}
-    \begin{block}{\centering 1. Definition of $c_1^\prime$}
+    \begin{block}{\centering 1. Definition of $a_1^\prime$}
       \begin{equation*}
-        \underbrace{c_1}_{\equiv c_1^\prime} + \underbrace{c_2 + c_3 + ...}_{\equiv 1 - c_1^\prime} = 1
+        \underbrace{a_1}_{\equiv a_1^\prime} + \underbrace{a_2 + a_3 + ...}_{\equiv 1 - a_1^\prime} = 1
       \end{equation*}
     \end{block}
-    \begin{block}{\centering 2. Eliminate $c_1$}
+    \begin{block}{\centering 2. Eliminate $a_1$}
       \begin{equation*}
-        c_2 + c_3 + c_4 + ... = 1 - c_1^\prime
+        a_2 + a_3 + a_4 + ... = 1 - a_1^\prime
       \end{equation*}
     \end{block}
-    \begin{block}{\centering 3. Definition of $c_2^\prime$}
+    \begin{block}{\centering 3. Definition of $a_2^\prime$}
       \begin{equation*}
-        \underbrace{\frac{c_2}{1 - c_1^\prime}}_{\equiv c_2^\prime} + \underbrace{\frac{c_3 + c_4 + ...}{1 - c_1^\prime}}_{\equiv 1 - c_2^\prime} = 1
+        \underbrace{\frac{a_2}{1 - a_1^\prime}}_{\equiv a_2^\prime} + \underbrace{\frac{a_3 + a_4 + ...}{1 - a_1^\prime}}_{\equiv 1 - a_2^\prime} = 1
       \end{equation*}
     \end{block}
     Repeat this procedure until the last coefficient, which is $1$
@@ -997,13 +997,13 @@
 \begin{frame}{$\delta_{K\pi}$ measurement}
   \begin{itemize}
     \setlength\itemsep{1.0em}
-    \item{$K_i$, which is constrained by flavour tags, are free parameters in the fit}
+    \item{$K_i$, which are constrained by flavour tags, are free parameters}
     \item{Corrections for DCS decays, which depend on the strong phases $\delta_D$, are part of the fit}
     \item{We could instead treat $\delta_D$ as a free parameter, and make a simultaneous measurement}
     \item{In this analysis we can measure $\delta_{K\pi}$ with negligible reduction in sensitivity to $c_i$ and $s_i$}
   \end{itemize}
   \begin{center}
-    $\hat{N}^{\rm DT}_i = N^{\rm ST}\mathcal{B}\epsilon_{ij}\Big(K_{-j} + K_j - 2\sqrt{K_jK_{-j}}\big(c_j\cos(\delta_D) + s_j\sin(\delta_D)\big)\Big)$
+    $\hat{N}^{\rm DT}_i = N^{\rm ST}\mathcal{B}\epsilon_{ij}\Big(K_{-j} + r_D^2K_j - 2r_D\sqrt{K_jK_{-j}}\big(c_j\cos(\delta_D) + s_j\sin(\delta_D)\big)\Big)$
   \end{center}
   \begin{itemize}
     \item{Free parameters: $r_D\cos(\delta_{K\pi})$ and $r_D\sin(\delta_{K\pi})$}
