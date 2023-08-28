@@ -1,5 +1,5 @@
 #!/bin/bash
-f=BES3KKpipicisiCharmMeetingPresentation23rdMarch2023.tex
+f=BES3KKpipicisiPhysicsSoftwareMeetingPresentation1stSeptember2023.tex
 if pdflatex $f
 then
   cd fgraph
