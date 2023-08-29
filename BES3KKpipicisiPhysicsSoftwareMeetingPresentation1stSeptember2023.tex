@@ -82,6 +82,9 @@
     \item{Phase-space integrated measurement: \href{https://journals.aps.org/prd/abstract/10.1103/PhysRevD.107.032009}{Phys. Rev. D \textbf{107} 032009}}
     \item{Strong phases are diluted when integrated over the 5D phase space $\implies$ Perform analysis in bins}
     \item{Binned model-dependent analysis of $\gamma$ has already been performed at LHCb: \href{https://link.springer.com/article/10.1140/epjc/s10052-023-11560-5}{Eur. Phys. J. C \textbf{83}, 547 (2023)}}
+    \begin{itemize}
+      \item{BESIII measurement will allow for a model-independent $\gamma$ update}
+    \end{itemize}
   \end{itemize}
 \end{frame}
 
@@ -116,9 +119,9 @@
     \item{Four-body decays have a 5D phase space, but their binning scheme may be defined analogously}
     \item{Many different strategies for 5D binning schemes:}
     \begin{itemize}
-      \item{$D\to K_S^0\pi^+\pi^-\pi^0$: \href{https://link.springer.com/article/10.1007/JHEP01(2018)082}{JHEP \textbf{2018} 82 (2018)}}
-      \item{$D\to\pi^+\pi^-\pi^+\pi^-$: \href{https://link.springer.com/article/10.1007/JHEP01(2018)144}{JHEP \textbf{2018} 144 (2018)}}
-      \item{$D\to K^-\pi^+\pi^-\pi^+$: \href{https://link.springer.com/article/10.1007/JHEP05(2021)164}{JHEP \textbf{2021} 164 (2021)}}
+      \item{$D\to K_S^0\pi^+\pi^-\pi^0$: \href{https://link.springer.com/article/10.1007/JHEP01(2018)082}{JHEP \textbf{2018} 82 (2018)} (CLEO-c data)}
+      \item{$D\to\pi^+\pi^-\pi^+\pi^-$: \href{https://link.springer.com/article/10.1007/JHEP01(2018)144}{JHEP \textbf{2018} 144 (2018)} (CLEO-c data)}
+      \item{$D\to K^-\pi^+\pi^-\pi^+$: \href{https://link.springer.com/article/10.1007/JHEP05(2021)164}{JHEP \textbf{2021} 164 (2021)} (BESIII collaboration)}
     \end{itemize}
   \end{itemize}
   \begin{figure}
@@ -144,7 +147,7 @@
 \begin{frame}{Introduction - Previous strong-phase analyses}
   \begin{itemize}
     \setlength\itemsep{1.0em}
-    \item{The phase-space integrated strong phase of $D\to K^+K^-\pi^+\pi^-$ was previously measured: \href{https://journals.aps.org/prd/abstract/10.1103/PhysRevD.107.032009}{Phys. Rev. D \textbf{107} 032009}}
+    \item{The phase-space integrated strong phase of $D\to K^+K^-\pi^+\pi^-$ was previously measured (\href{https://journals.aps.org/prd/abstract/10.1103/PhysRevD.107.032009}{Phys. Rev. D \textbf{107} 032009}): $F_+ = 0.73 \pm 0.04$}
     \item{The asymmetry in the branching fraction measured using CP even and CP odd tags is sensitive to the CP-even fraction $F_+$}
     \begin{itemize}
       \item{$c_i = 2F_+ - 1$ is the amplitude-average cosine of the strong phase}
@@ -166,7 +169,7 @@
 \end{frame}
 
 \section{Binning scheme}
-\begin{frame}{Binning scheme}
+\begin{frame}{$KK\pi\pi$ binning scheme}
   \vspace{0.0cm}
   {\Large Strong phases are determined from yield asymmetries}
   \begin{itemize}
@@ -176,8 +179,7 @@
   \vspace{0.4cm}
   {\Large How to bin a 5-dimensional phase space?}
   \begin{itemize}
-    \item{Generate C++ code for LHCb amplitude model using AmpGen\footnote{\href{https://github.com/GooFit/AmpGen}{AmpGen} by Tim Evans}}
-    \item{For each $D$ event, calculate}
+    \item{For each $D$ event, use LHCb model to calculate}
   \end{itemize}
   \begin{center}
     {\Large $\frac{\mathcal{A}(D^0)}{\mathcal{A}(\bar{D^0})} = r_De^{i\delta_D}$}
@@ -187,10 +189,11 @@
     \begin{itemize}
       \item{Bin boundaries in $\delta_D$ are moved to maximise sensitivity to $\gamma$}
     \end{itemize}
+  \item{The $KK\pi\pi$ binning scheme has been fixed by LHCb analysis of $\gamma$ in \href{https://link.springer.com/article/10.1140/epjc/s10052-023-11560-5}{Eur. Phys. J. C \textbf{83}, 547 (2023)}}
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Binning scheme}
+\begin{frame}{$KK\pi\pi$ binning scheme}
   \begin{figure}
     \centering
     \includegraphics[width = 0.7\textwidth]{Plots/BinningSchemePlot_4Bins.pdf}
@@ -201,7 +204,7 @@
   \end{center}
 \end{frame}
 
-\begin{frame}{Binning scheme}
+\begin{frame}{$KK\pi\pi$ binning scheme}
   \begin{figure}
     \centering
     \includegraphics[width = 0.7\textwidth]{Plots/BinningSchemePlot_8Bins.pdf}
@@ -450,12 +453,16 @@
 
 \begin{frame}{Partially reconstructed $D^0\to K^+K^-\pi^+\pi^-$}
   \begin{itemize}
+    \setlength\itemsep{0.5em}
     \item{The reconstruction efficiency of $D\to KK\pi\pi$ is less than $20\%$}
     \item{For comparison, the efficiency of $D\to\pi\pi\pi\pi$ is around $50\%$!}
     \item{Poor kaon tracking efficiency at low momentum}
+    \begin{itemize}
+      \item[-]{(Can be recovered in reconstruction, e.g. by requiring fewer hits on tracks? This was done at CLEO-c)}
+    \end{itemize}
   \end{itemize}
   \begin{figure}
-    \includegraphics[width=0.6\textwidth]{Plots/KaonTrackingEfficiency.png}
+    \includegraphics[width=0.5\textwidth]{Plots/KaonTrackingEfficiency.png}
   \end{figure}
 \end{frame}
 
@@ -689,7 +696,7 @@
   \end{center}
   \begin{enumerate}
     \setcounter{enumi}{1}
-    \item{However, the $K_i$ must be corrected for efficiencies and bin migrations, in addition to Doubly Cabbibo Suppressed decays:}
+    \item{However, the $K_i$ must be corrected for efficiencies and bin migrations, in addition to Doubly Cabibbo Suppressed decays:}
   \end{enumerate}
   \begin{center}
     $f_i = \Big(1 + r_D^2\frac{K_{-i}}{K_i} - 2\sqrt{\frac{K_{-i}}{K_i}}\big(c_i\cos(\delta_D) + s_i\sin(\delta_D)\big)\Big)^{-1}$
